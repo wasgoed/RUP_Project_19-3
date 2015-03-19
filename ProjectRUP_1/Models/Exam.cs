@@ -16,7 +16,9 @@ namespace ProjectRUP_1.Models
     {
         public Exam()
         {
+            this.Evaluation = new HashSet<Evaluation>();
             this.ExamClassroom = new HashSet<ExamClassroom>();
+            this.ExamSubscription = new HashSet<ExamSubscription>();
         }
     
         public int Id { get; set; }
@@ -24,12 +26,17 @@ namespace ProjectRUP_1.Models
         public int Creator { get; set; }
         public string Speciality { get; set; }
         public bool ComputerNeeded { get; set; }
-        public bool Surveillant { get; set; }
+        public int Surveillant { get; set; }
         public int ExpectedStudents { get; set; }
-        public int ResultIsDecimal { get; set; }
-        public Nullable<int> QuarterId { get; set; }
+        public bool ResultIsDecimal { get; set; }
+        public int QuarterId { get; set; }
         public int MinutesDuration { get; set; }
     
+        public virtual ICollection<Evaluation> Evaluation { get; set; }
+        public virtual User User { get; set; }
+        public virtual Quarter Quarter { get; set; }
+        public virtual User User1 { get; set; }
         public virtual ICollection<ExamClassroom> ExamClassroom { get; set; }
+        public virtual ICollection<ExamSubscription> ExamSubscription { get; set; }
     }
 }

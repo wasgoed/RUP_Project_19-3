@@ -13,10 +13,10 @@ namespace ProjectRUP_1.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HUInspectorEntities : DbContext
+    public partial class HUInspectorEntities1 : DbContext
     {
-        public HUInspectorEntities()
-            : base("name=HUInspectorEntities")
+        public HUInspectorEntities1()
+            : base("name=HUInspectorEntities1")
         {
         }
     
@@ -26,8 +26,13 @@ namespace ProjectRUP_1.Models
         }
     
         public virtual DbSet<Classroom> Classroom { get; set; }
+        public virtual DbSet<Evaluation> Evaluation { get; set; }
         public virtual DbSet<Exam> Exam { get; set; }
         public virtual DbSet<ExamClassroom> ExamClassroom { get; set; }
+        public virtual DbSet<ExamSubscription> ExamSubscription { get; set; }
+        public virtual DbSet<Quarter> Quarter { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserType> UserType { get; set; }
     }
 }

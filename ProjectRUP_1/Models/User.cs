@@ -14,6 +14,14 @@ namespace ProjectRUP_1.Models
     
     public partial class User
     {
+        public User()
+        {
+            this.Evaluation = new HashSet<Evaluation>();
+            this.Exam = new HashSet<Exam>();
+            this.Exam1 = new HashSet<Exam>();
+            this.ExamSubscription = new HashSet<ExamSubscription>();
+        }
+    
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string Insertion { get; set; }
@@ -21,5 +29,11 @@ namespace ProjectRUP_1.Models
         public string Mail { get; set; }
         public string Password { get; set; }
         public int UserTypeId { get; set; }
+    
+        public virtual ICollection<Evaluation> Evaluation { get; set; }
+        public virtual ICollection<Exam> Exam { get; set; }
+        public virtual ICollection<Exam> Exam1 { get; set; }
+        public virtual ICollection<ExamSubscription> ExamSubscription { get; set; }
+        public virtual UserType UserType { get; set; }
     }
 }

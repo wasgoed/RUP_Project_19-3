@@ -6,17 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProjectRUP_1.Models;
 
-namespace ProjectRUP_1.Models
+namespace ProjectRUP_1.Controllers
 {
     public class ExamsController : Controller
     {
-        private HUInspectorEntities db = new HUInspectorEntities();
+        private HUInspectorEntities1 db = new HUInspectorEntities1();
 
         // GET: Exams
         public ActionResult Index()
         {
-            return View(db.Exam.ToList());
+            var exam = db.Exam.Include(e => e.User).Include(e => e.Quarter).Include(e => e.User1);
+            return View(exam.ToList());
         }
 
         // GET: Exams/Details/5
@@ -37,6 +39,9 @@ namespace ProjectRUP_1.Models
         // GET: Exams/Create
         public ActionResult Create()
         {
+            ViewBag.Creator = new SelectList(db.User, "Id", "FirstName");
+            ViewBag.QuarterId = new SelectList(db.Quarter, "Id", "QuarterName");
+            ViewBag.Surveillant = new SelectList(db.User, "Id", "FirstName");
             return View();
         }
 
@@ -54,6 +59,9 @@ namespace ProjectRUP_1.Models
                 return RedirectToAction("Index");
             }
 
+            ViewBag.Creator = new SelectList(db.User, "Id", "FirstName", exam.Creator);
+            ViewBag.QuarterId = new SelectList(db.Quarter, "Id", "QuarterName", exam.QuarterId);
+            ViewBag.Surveillant = new SelectList(db.User, "Id", "FirstName", exam.Surveillant);
             return View(exam);
         }
 
@@ -69,6 +77,9 @@ namespace ProjectRUP_1.Models
             {
                 return HttpNotFound();
             }
+            ViewBag.Creator = new SelectList(db.User, "Id", "FirstName", exam.Creator);
+            ViewBag.QuarterId = new SelectList(db.Quarter, "Id", "QuarterName", exam.QuarterId);
+            ViewBag.Surveillant = new SelectList(db.User, "Id", "FirstName", exam.Surveillant);
             return View(exam);
         }
 
@@ -85,6 +96,9 @@ namespace ProjectRUP_1.Models
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Creator = new SelectList(db.User, "Id", "FirstName", exam.Creator);
+            ViewBag.QuarterId = new SelectList(db.Quarter, "Id", "QuarterName", exam.QuarterId);
+            ViewBag.Surveillant = new SelectList(db.User, "Id", "FirstName", exam.Surveillant);
             return View(exam);
         }
 

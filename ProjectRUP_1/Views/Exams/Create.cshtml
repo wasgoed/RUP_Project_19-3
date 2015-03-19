@@ -24,9 +24,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Creator, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Creator, "Creator", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Creator, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("Creator", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Creator, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,12 +50,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Surveillant, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Surveillant, "Surveillant", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Surveillant)
-                    @Html.ValidationMessageFor(model => model.Surveillant, "", new { @class = "text-danger" })
-                </div>
+                @Html.DropDownList("Surveillant", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Surveillant, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -70,15 +68,17 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ResultIsDecimal, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ResultIsDecimal, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ResultIsDecimal, "", new { @class = "text-danger" })
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ResultIsDecimal)
+                    @Html.ValidationMessageFor(model => model.ResultIsDecimal, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.QuarterId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.QuarterId, "QuarterId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.QuarterId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("QuarterId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.QuarterId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -100,7 +100,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <a href="~/Home/Tentamen"><button class="btn-info">Ga terug</button></a>
 </div>
 
 @section Scripts {
