@@ -1,0 +1,90 @@
+﻿@model ProjectRUP_1.Models.Exam
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Exam</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Creator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Speciality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Speciality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComputerNeeded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComputerNeeded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surveillant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surveillant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpectedStudents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpectedStudents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultIsDecimal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultIsDecimal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuarterId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuarterId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinutesDuration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinutesDuration)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
